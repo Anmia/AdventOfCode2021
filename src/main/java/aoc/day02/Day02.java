@@ -2,7 +2,6 @@ package aoc.day02;
 
 import aoc.Day;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Day02 implements Day {
@@ -13,7 +12,7 @@ public class Day02 implements Day {
         int x = 0;
         int y = 0;
 
-        String[] splitLine = new String[2];
+        String[] splitLine;
 
         for (String line : input) {
             splitLine = line.split(" ");
@@ -38,7 +37,7 @@ public class Day02 implements Day {
         int y = 0;
         int aim = 0;
 
-        String[] splitLine = new String[2];
+        String[] splitLine;
 
         for (String line : input) {
             splitLine = line.split(" ");

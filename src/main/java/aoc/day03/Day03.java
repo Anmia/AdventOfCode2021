@@ -10,7 +10,7 @@ public class Day03 implements Day {
 
     @Override
     public String part1(List<String> input) {
-        String output = "";
+        String output;
 
         int leng = input.get(0).length();
 
@@ -18,17 +18,17 @@ public class Day03 implements Day {
 
         Arrays.fill(ones, 0);
 
-        for (int i = 0; i < input.size(); i++) {
-            for (int j = 0; j < input.get(i).length(); j++) {
-                ones[j] = ones[j] + Integer.parseInt(input.get(i).substring(j, j + 1));
+        for (String s : input) {
+            for (int j = 0; j < s.length(); j++) {
+                ones[j] = ones[j] + Integer.parseInt(s.substring(j, j + 1));
             }
         }
 
         String gamma = "";
         String epsilon = "";
 
-        for (int i = 0; i < ones.length; i++) {
-            if (ones[i] < (input.size() - ones[i])) {
+        for (int one : ones) {
+            if (one < (input.size() - one)) {
                 gamma = gamma + "0";
                 epsilon = epsilon + "1";
             } else {
@@ -60,7 +60,7 @@ public class Day03 implements Day {
 
     @Override
     public String part2(List<String> input) {
-        String output = "";
+        String output;
 
         List<String> oxygenList = input;
         List<String> carbonList = input;

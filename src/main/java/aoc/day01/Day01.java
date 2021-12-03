@@ -20,17 +20,11 @@ public class Day01 implements Day {
         String boom = "" + result;
 
         return boom;
-        //return input.isEmpty() ? "" : input.get(0);
     }
 
     @Override
     public String part2(List<String> input) {
-        int listLength = input.size();
         int a;
-        int b;
-        int c;
-        int d;
-        int result = 0;
 
         ArrayList<String> output = new ArrayList<>();
 
