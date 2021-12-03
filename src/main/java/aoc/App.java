@@ -44,23 +44,24 @@ public class App {
     }
 
     public static void main(String[] args) {
-        int day = 3;
-        if(args.length != 0){
-            day = Integer.parseInt(args[0]);
+        int day;
+
+        for (int i = 1; i <= 3; i++) {
+            day = i;
+            if(args.length != 0){
+                day = Integer.parseInt(args[0]);
+            }
+
+            List<String> input = loadInput(day);
+
+            String result1 = DAYS.get(day).part1(input);
+
+            String result2 = DAYS.get(day).part2(input);
+
+            System.out.println("Result for Day: " + day + " Part 1: " + result1);
+            System.out.println("Result for Day: " + day + " Part 2: " + result2);
         }
 
-        int part = 1;
-        if(args.length > 1){
-            part = Integer.parseInt(args[1]);
-        }
 
-        List<String> input = loadInput(day);
-
-        String result1 = DAYS.get(day).part1(input);
-
-        String result2 = DAYS.get(day).part2(input);
-
-        System.out.println("Result for part 1: " + result1);
-        System.out.println("Result for part 2: " + result2);
     }
 }
