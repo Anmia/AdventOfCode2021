@@ -10,129 +10,196 @@ public class Day04 implements Day {
 
     @Override
     public String part1(List<String> input) {
-        String output;
+        String output = "";
 
-        int leng = input.get(0).length();
+        String[] splitString = input.get(0).split(",");
+        int[] draw = new int[splitString.length];
 
-        int[] ones = new int[leng];
+        for (int i = 0; i < draw.length; i++) {
+            draw[i] = Integer.parseInt(splitString[i]);
+        }
 
-        Arrays.fill(ones, 0);
+        int[][][] boardLines = stringSplitter(input);
 
-        for (String s : input) {
-            for (int j = 0; j < s.length(); j++) {
-                ones[j] = ones[j] + Integer.parseInt(s.substring(j, j + 1));
+        int board = -1;
+        int completionNumber = -1;
+        int occurrence = 0;
+        int bingoBall = 0;
+
+        for (int i = 0; i < draw.length; i++) { // Number to check
+            bingoBall = draw[i];
+            for (int j = 0; j < boardLines.length; j++) { //Goes through rows and check occurrences
+                for (int k = 0; k < 5; k++) {
+                    int number = boardLines[j][k][0];
+                    if (bingoBall == number) {
+                        boardLines[j][k][1] = 1;
+                    }
+                }
+            }
+
+            for (int j = 0; j < boardLines.length - 1; j += 5) { //check for row or column completion for board
+                for (int k = j; k < j + 5 && k < boardLines.length; k++) { // board rows
+                    if (board != -1) {
+                        break;
+                    }
+                    for (int l = 0; l < 5; l++) { //column
+                        if (boardLines[k][l][1] == 1) {
+                            occurrence++;
+                        }
+                    }
+
+                    if (occurrence == 5) {
+                        board = j;
+                        completionNumber = bingoBall;
+                        k = j + 5;
+                        j = boardLines.length;
+                        i = draw.length;
+                    } else {
+                        occurrence = 0;
+                    }
+                }
+
+                if (completionNumber == -1) {
+                    for (int k = 0; k < 5; k++) {
+                        for (int l = j; l < j + 5 && k < boardLines.length; l++) {
+                            if (boardLines[l][k][1] == 1) {
+                                occurrence++;
+                            }
+                        }
+
+                        if (occurrence == 5) {
+                            board = j;
+                            completionNumber = bingoBall;
+                            k = 6;
+                            j = boardLines.length + 1;
+                            i = draw.length + 1;
+                        } else {
+                            occurrence = 0;
+                        }
+                    }
+                }
             }
         }
 
-        String gamma = "";
-        String epsilon = "";
-
-        for (int one : ones) {
-            if (one < (input.size() - one)) {
-                gamma = gamma + "0";
-                epsilon = epsilon + "1";
-            } else {
-                gamma = gamma + "1";
-                epsilon = epsilon + "0";
+        int sum = 0;
+        for (int i = board; i < board + 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (boardLines[i][j][1] != 1) {
+                    sum += boardLines[i][j][0];
+                }
             }
         }
 
-        int x = binaryInt(gamma);
-        int y = binaryInt(epsilon);
-
-        output = (x * y) + "";
-
+        output = (sum * completionNumber) + "";
         return output;
     }
 
-    public int binaryInt(String input) {
-        int x = 1;
-        int out = 0;
-
-        for (int i = input.length(); i > 0; i--) {
-            if (Integer.parseInt(input.substring(i - 1, i)) == 1) {
-                out = out + x;
+    public int[][][] stringSplitter(List<String> input) {
+        int length = 0;
+        List<String> temp = new ArrayList<>();
+        for (int i = 2; i < input.size(); i++) {
+            if (input.get(i).length() != 0) {
+                length++;
+                temp.add(input.get(i));
             }
-            x = x * 2;
         }
-        return out;
+
+        int[][][] output = new int[length][5][2];
+        String line = "";
+        String tempLine = "";
+
+        for (int i = 0; i < temp.size(); i++) {
+            line = temp.get(i);
+            for (int j = 0; j < 5; j++) {
+                tempLine = line.substring(j * 3, (j * 3) + 2);
+                if (tempLine.contains(" ")){
+                    output[i][j][0] = Integer.parseInt(tempLine.substring(1, 2));
+                } else {
+                    output[i][j][0] = Integer.parseInt(tempLine);
+                }
+                output[i][j][1] = 0;
+            }
+        }
+
+        return output;
     }
 
     @Override
     public String part2(List<String> input) {
-        String output;
+        String output = "";
 
-        List<String> oxygenList = input;
-        List<String> carbonList = input;
-        String oxygen = "";
-        String carbon = "";
+        String[] splitString = input.get(0).split(",");
+        int[] draw = new int[splitString.length];
 
-        int length = input.get(0).length();
+        for (int i = 0; i < draw.length; i++) {
+            draw[i] = Integer.parseInt(splitString[i]);
+        }
 
-        for (int i = 0; i < length; i++) {
-            int ones = bitCounter(oxygenList, i);
-            int lengthOfList = oxygenList.size();
-            int target = 0;
-            if (ones >= lengthOfList - ones) {
-                target = 1;
+        int[][][] boardLines = stringSplitter(input);
+
+        int board = -1;
+        int completionNumber = -1;
+        int occurrence = 0;
+        int bingoBall = 0;
+
+        for (int i = 0; i < draw.length; i++) { // Number to check
+            bingoBall = draw[i];
+            for (int j = 0; j < boardLines.length; j++) { //Goes through rows and check occurrences
+                for (int k = 0; k < 5; k++) {
+                    int number = boardLines[j][k][0];
+                    if (bingoBall == number) {
+                        boardLines[j][k][1] = 1;
+                    }
+                }
             }
 
-            oxygenList = pruner(target, i, oxygenList);
-            lengthOfList = oxygenList.size();
-            if (lengthOfList == 1) {
-                oxygen = oxygenList.get(0);
+            for (int j = 0; j < boardLines.length - 1; j += 5) { //check for row or column completion for board
+                for (int k = j; k < j + 5 && k < boardLines.length; k++) { // board rows
+                    for (int l = 0; l < 5; l++) { //column
+                        if (boardLines[k][l][1] == 1) {
+                            occurrence++;
+                        }
+                    }
+
+                    if (occurrence == 5) {
+                        board = j;
+                        completionNumber = bingoBall;
+                        occurrence = 0;
+                    } else {
+                        occurrence = 0;
+                    }
+                }
+
+                if (completionNumber == -1) {
+                    for (int k = 0; k < 5; k++) {
+                        for (int l = j; l < j + 5 && k < boardLines.length; l++) {
+                            if (boardLines[l][k][1] == 1) {
+                                occurrence++;
+                            }
+                        }
+
+                        if (occurrence == 5) {
+                            board = j;
+                            completionNumber = bingoBall;
+                            occurrence = 0;
+                        } else {
+                            occurrence = 0;
+                        }
+                    }
+                }
             }
         }
 
-        for (int i = 0; i < length; i++) {
-            int ones = bitCounter(carbonList, i);
-            int lengthOfList = carbonList.size();
-            int target = 0;
-            if (ones < lengthOfList - ones) {
-                target = 1;
-            }
-
-            carbonList = pruner(target, i, carbonList);
-            lengthOfList = carbonList.size();
-            if (lengthOfList == 1) {
-                carbon = carbonList.get(0);
+        int sum = 0;
+        for (int i = board; i < board + 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (boardLines[i][j][1] != 1) {
+                    sum += boardLines[i][j][0];
+                }
             }
         }
 
-        int x = binaryInt(oxygen);
-        int y = binaryInt(carbon);
-
-        output = (x * y) + "";
-
-        return output;
-    }
-
-    public int bitCounter (List<String> input, int position) {
-        int output = 0;
-
-        for (String item : input) {
-            if (1 == Integer.parseInt(item.substring(position, position + 1))) {
-                output++;
-            }
-        }
-
-        return output;
-    }
-
-    public List<String> pruner(int target, int position, List<String> input) {
-        List<String> output = new ArrayList<>();
-
-        if (input.size() == 1) {
-            output.add(input.get(0));
-            return output;
-        }
-
-        for (String item : input) {
-            if (Integer.parseInt(item.substring(position, position + 1)) == target) {
-                output.add(item);
-            }
-        }
-
+        output = (sum * completionNumber) + "";
         return output;
     }
 }
