@@ -46,7 +46,7 @@ public class App {
     public static void main(String[] args) {
         int day;
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 4; i++) {
             day = i;
             if(args.length != 0){
                 day = Integer.parseInt(args[0]);
