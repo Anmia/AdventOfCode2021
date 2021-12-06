@@ -3,6 +3,7 @@ package aoc.day06;
 import aoc.Day;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Day06 implements Day {
@@ -11,114 +12,38 @@ public class Day06 implements Day {
     public String part1(List<String> input) {
         String output = "";
 
-        String[] splitString = input.get(0).split(",");
-        int[] draw = new int[splitString.length];
+        String[] line = input.get(0).split(",");
+        int[] counter = new int[9];
 
-        for (int i = 0; i < draw.length; i++) {
-            draw[i] = Integer.parseInt(splitString[i]);
+        Arrays.fill(counter, 0);
+
+        for (int i = 0; i < line.length; i++) {
+            counter[Integer.parseInt(line[i])] = counter[Integer.parseInt(line[i])] + 1;
         }
 
-        int[][][] boardLines = stringSplitter(input);
+        for (int i = 0; i < 80; i++) {
+            int[] tempCounter = new int[9];
+            Arrays.fill(tempCounter, 0);
 
-        int board = -1;
-        int completionNumber = -1;
-        int occurrence = 0;
-        int bingoBall = 0;
-
-        for (int i = 0; i < draw.length; i++) { // Number to check
-            bingoBall = draw[i];
-            for (int j = 0; j < boardLines.length; j++) { //Goes through rows and check occurrences
-                for (int k = 0; k < 5; k++) {
-                    int number = boardLines[j][k][0];
-                    if (bingoBall == number) {
-                        boardLines[j][k][1] = 1;
-                    }
+            for (int j = 0; j < counter.length; j++) {
+                if (j == 0) {
+                    tempCounter[6] = counter[j];
+                    tempCounter[8] = counter[j];
+                } else {
+                    tempCounter[j - 1] = tempCounter[j - 1] + counter[j];
                 }
             }
 
-            for (int j = 0; j < boardLines.length - 1; j += 5) { //check for row or column completion for board
-                for (int k = j; k < j + 5 && k < boardLines.length; k++) { // board rows
-                    if (board != -1) {
-                        break;
-                    }
-                    for (int l = 0; l < 5; l++) { //column
-                        if (boardLines[k][l][1] == 1) {
-                            occurrence++;
-                        }
-                    }
-
-                    if (occurrence == 5) {
-                        board = j;
-                        completionNumber = bingoBall;
-                        k = j + 5;
-                        j = boardLines.length;
-                        i = draw.length;
-                    } else {
-                        occurrence = 0;
-                    }
-                }
-
-                if (completionNumber == -1) {
-                    for (int k = 0; k < 5; k++) {
-                        for (int l = j; l < j + 5 && k < boardLines.length; l++) {
-                            if (boardLines[l][k][1] == 1) {
-                                occurrence++;
-                            }
-                        }
-
-                        if (occurrence == 5) {
-                            board = j;
-                            completionNumber = bingoBall;
-                            k = 6;
-                            j = boardLines.length + 1;
-                            i = draw.length + 1;
-                        } else {
-                            occurrence = 0;
-                        }
-                    }
-                }
-            }
+            counter = tempCounter;
         }
 
         int sum = 0;
-        for (int i = board; i < board + 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (boardLines[i][j][1] != 1) {
-                    sum += boardLines[i][j][0];
-                }
-            }
+
+        for (int item : counter) {
+            sum += item;
         }
 
-        output = (sum * completionNumber) + "";
-        return output;
-    }
-
-    public int[][][] stringSplitter(List<String> input) {
-        int length = 0;
-        List<String> temp = new ArrayList<>();
-        for (int i = 2; i < input.size(); i++) {
-            if (input.get(i).length() != 0) {
-                length++;
-                temp.add(input.get(i));
-            }
-        }
-
-        int[][][] output = new int[length][5][2];
-        String line = "";
-        String tempLine = "";
-
-        for (int i = 0; i < temp.size(); i++) {
-            line = temp.get(i);
-            for (int j = 0; j < 5; j++) {
-                tempLine = line.substring(j * 3, (j * 3) + 2);
-                if (tempLine.contains(" ")){
-                    output[i][j][0] = Integer.parseInt(tempLine.substring(1, 2));
-                } else {
-                    output[i][j][0] = Integer.parseInt(tempLine);
-                }
-                output[i][j][1] = 0;
-            }
-        }
+        output = sum + "";
 
         return output;
     }
@@ -127,78 +52,39 @@ public class Day06 implements Day {
     public String part2(List<String> input) {
         String output = "";
 
-        String[] splitString = input.get(0).split(",");
-        int[] draw = new int[splitString.length];
+        String[] line = input.get(0).split(",");
+        long[] counter = new long[9];
 
-        for (int i = 0; i < draw.length; i++) {
-            draw[i] = Integer.parseInt(splitString[i]);
+        Arrays.fill(counter, 0);
+
+        for (int i = 0; i < line.length; i++) {
+            counter[Integer.parseInt(line[i])] = counter[Integer.parseInt(line[i])] + 1;
         }
 
-        int[][][] boardLines = stringSplitter(input);
+        for (int i = 0; i < 256; i++) {
+            long[] tempCounter = new long[9];
+            Arrays.fill(tempCounter, 0);
 
-        int board = -1;
-        int completionNumber = -1;
-        int occurrence = 0;
-        int bingoBall = 0;
-
-        for (int i = 0; i < draw.length; i++) { // Number to check
-            bingoBall = draw[i];
-            for (int j = 0; j < boardLines.length; j++) { //Goes through rows and check occurrences
-                for (int k = 0; k < 5; k++) {
-                    int number = boardLines[j][k][0];
-                    if (bingoBall == number) {
-                        boardLines[j][k][1] = 1;
-                    }
+            for (int j = 0; j < counter.length; j++) {
+                if (j == 0) {
+                    tempCounter[6] = counter[j];
+                    tempCounter[8] = counter[j];
+                } else {
+                    tempCounter[j - 1] = tempCounter[j - 1] + counter[j];
                 }
             }
 
-            for (int j = 0; j < boardLines.length - 1; j += 5) { //check for row or column completion for board
-                for (int k = j; k < j + 5 && k < boardLines.length; k++) { // board rows
-                    for (int l = 0; l < 5; l++) { //column
-                        if (boardLines[k][l][1] == 1) {
-                            occurrence++;
-                        }
-                    }
-
-                    if (occurrence == 5) {
-                        board = j;
-                        completionNumber = bingoBall;
-                        occurrence = 0;
-                    } else {
-                        occurrence = 0;
-                    }
-                }
-
-                if (completionNumber == -1) {
-                    for (int k = 0; k < 5; k++) {
-                        for (int l = j; l < j + 5 && k < boardLines.length; l++) {
-                            if (boardLines[l][k][1] == 1) {
-                                occurrence++;
-                            }
-                        }
-
-                        if (occurrence == 5) {
-                            board = j;
-                            completionNumber = bingoBall;
-                            occurrence = 0;
-                        } else {
-                            occurrence = 0;
-                        }
-                    }
-                }
-            }
+            counter = tempCounter;
         }
 
-        int sum = 0;
-        for (int i = board; i < board + 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (boardLines[i][j][1] != 1) {
-                    sum += boardLines[i][j][0];
-                }
-            }
+        long sum = 0;
+
+        for (long item : counter) {
+            sum += item;
         }
 
-        output = (sum * completionNumber) + "";
+        output = sum + "";
+
         return output;
     }
 }

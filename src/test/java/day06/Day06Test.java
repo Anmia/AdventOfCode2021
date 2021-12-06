@@ -24,7 +24,7 @@ public class Day06Test {
         String result = new Day06().part1(input);
 
         // Then
-        assertEquals("4512", result);
+        assertEquals("5934", result);
     }
 
     @Test
@@ -40,6 +40,6 @@ public class Day06Test {
         String result = new Day06().part2(input);
 
         // Then
-        assertEquals("1924", result);
+        assertEquals("26984457539", result);
     }
 }

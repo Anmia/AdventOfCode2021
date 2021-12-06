@@ -33,7 +33,7 @@ public class Day05Test {
         String result = new Day05().part1(input);
 
         // Then
-        assertEquals("4512", result);
+        assertEquals("5", result);
     }
 
     @Test
