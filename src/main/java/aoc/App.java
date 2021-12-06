@@ -29,6 +29,8 @@ public class App {
         DAYS.put(2, new Day02());
         DAYS.put(3, new Day03());
         DAYS.put(4, new Day04());
+        DAYS.put(5, new Day03());
+        DAYS.put(6, new Day04());
     }
 
     private static List<String> loadInput(int day){
@@ -48,7 +50,7 @@ public class App {
     public static void main(String[] args) {
         int day;
 
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 1; i <= 6; i++) {
             day = i;
             if(args.length != 0){
                 day = Integer.parseInt(args[0]);
