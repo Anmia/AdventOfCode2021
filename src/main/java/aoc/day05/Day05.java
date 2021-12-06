@@ -16,33 +16,38 @@ public class Day05 implements Day {
         int[][] grid = prefilledGrid(lines); //a grid filled with 0 that is as big as it needs to be
 
         for (int i = 0; i < lines.length; i++) { //Go through the list of commands
-            if (lines[i][1] == lines[i][3]) { //check for horizontal match
+            int x1 = lines[i][0];
+            int y1 = lines[i][1];
+            int x2 = lines[i][2];
+            int y2 = lines[i][3];
+            if (y1 == y2) { //check for horizontal match
                 int high, low;
-                if (lines[i][0] > lines[i][2]) {
-                    high = lines[i][0];
-                    low = lines[i][2];
+                if (x1 > x2) {
+                    high = x1;
+                    low = x2;
                 } else {
-                    high = lines[i][2];
-                    low = lines[i][0];
+                    high = x2;
+                    low = x1;
                 }
 
-                for (int j = low; j <= high; j++) {
-                    grid[lines[i][1]][j] = grid[lines[i][1]][j] + 1;
+                for (int j = 0; j <= high - low; j++) {
+                    grid[y1][low + j] = grid[y1][low + j] + 1;
                 }
+
             }
 
-            if (lines[i][0] == lines[i][2]) { //Check vertical match
+            if (x1 == x2) { //Check vertical match
                 int high, low;
-                if (lines[i][1] > lines[i][3]) { //sets max and min for X
-                    high = lines[i][1];
-                    low = lines[i][3];
+                if (y1 > y2) { //sets max and min for X
+                    high = y1;
+                    low = y2;
                 } else {
-                    high = lines[i][3];
-                    low = lines[i][1];
+                    high = y2;
+                    low = y1;
                 }
 
-                for (int j = low; j <= high; j++) {
-                    grid[j][lines[i][0]] = grid[j][lines[i][0]] + 1;
+                for (int j = 0; j <= high - low; j++) {
+                    grid[low + j][x1] = grid[low + j][x1] + 1;
                 }
             }
         }
@@ -94,7 +99,7 @@ public class Day05 implements Day {
             }
         }
 
-        int[][] output = new int[xMax + 2][yMax + 2];
+        int[][] output = new int[yMax + 1][xMax + 1];
 
         for (int[] rows : output) {
             Arrays.fill(rows, 0);
@@ -107,6 +112,94 @@ public class Day05 implements Day {
     public String part2(List<String> input) {
         String output = "";
 
+        int[][] lines = lineSplitter(input);
+        int[][] grid = prefilledGrid(lines); //a grid filled with 0 that is as big as it needs to be
+
+        for (int i = 0; i < lines.length; i++) { //Go through the list of commands
+            int x1 = lines[i][0];
+            int y1 = lines[i][1];
+            int x2 = lines[i][2];
+            int y2 = lines[i][3];
+
+            if (y1 == y2) { //check for horizontal match
+                int high, low;
+                if (x1 > x2) {
+                    high = x1;
+                    low = x2;
+                } else {
+                    high = x2;
+                    low = x1;
+                }
+
+                for (int j = 0; j <= high - low; j++) {
+                    grid[y1][low + j] = grid[y1][low + j] + 1;
+                }
+
+            }
+
+            if (x1 == x2) { //Check vertical match
+                int high, low;
+                if (y1 > y2) { //sets max and min for X
+                    high = y1;
+                    low = y2;
+                } else {
+                    high = y2;
+                    low = y1;
+                }
+
+                for (int j = 0; j <= high - low; j++) {
+                    grid[low + j][x1] = grid[low + j][x1] + 1;
+                }
+            }
+
+            int x = x1 - x2;
+            if (x < 0) {x = x * -1;}
+
+            int y = y1 - y2;
+            if (y < 0) {y = y * -1;}
+
+            if (x == y) {
+                int highX, lowX, highY, lowY;
+
+                if (y1 > y2) { //sets max and min for X
+                    highY = y1;
+                    lowY = y2;
+                } else {
+                    highY = y2;
+                    lowY = y1;
+                }
+
+                if (x1 > x2) {
+                    highX = x1;
+                    lowX = x2;
+                } else {
+                    highX = x2;
+                    lowX = x1;
+                }
+
+                if (x1 - y1 != x2 - y2) {
+                    for (int j = 0; j <= highX - lowX ; j++) {
+                        grid[highY - j][lowX + j] = grid[highY - j][lowX + j] + 1;
+                    }
+                } else {
+                    for (int j = 0; j <= highX - lowX; j++) {
+                        grid[lowY + j][lowX + j] = grid[lowY + j][lowX + j] + 1;
+                    }
+                }
+            }
+        }
+
+        int count = 0;
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] > 1) {
+                    count++;
+                }
+            }
+        }
+
+        output = count + "";
         return output;
     }
 }
