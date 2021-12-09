@@ -25,7 +25,7 @@ public class Day10Test {
         String result = new Day10().part1(input);
 
         // Then
-        assertEquals("5934", result);
+        assertEquals("wip", result);
     }
 
     @Test
@@ -41,6 +41,6 @@ public class Day10Test {
         String result = new Day10().part2(input);
 
         // Then
-        assertEquals("26984457539", result);
+        assertEquals("wip", result);
     }
 }

@@ -25,7 +25,7 @@ public class Day14Test {
         String result = new Day14().part1(input);
 
         // Then
-        assertEquals("Not yet solved", result);
+        assertEquals("wip", result);
     }
 
     @Test
@@ -41,6 +41,6 @@ public class Day14Test {
         String result = new Day14().part2(input);
 
         // Then
-        assertEquals("Not yet solved", result);
+        assertEquals("wip", result);
     }
 }
