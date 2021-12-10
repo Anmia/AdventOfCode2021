@@ -76,7 +76,10 @@ public class App {
 	}
 
 	public static void main(String[] args) {
+
 		int day;
+
+		String out = "";
 
 		for (int i = 1; i <= 19; i++) {
 			day = i;
@@ -88,15 +91,25 @@ public class App {
 
 			String result1 = DAYS.get(day).part1(input);
 
+
 			String result2 = DAYS.get(day).part2(input);
 
+
+			String paddedDay = day + "";
+			if (day < 10) {
+				paddedDay = "0" + day;
+			}
+
 			if (!result1.contains("wip")) {
-				System.out.println("Result for Day: " + day + " Part 1: " + result1);
+				out += "Result for Day: " + paddedDay + " Part 1: " + result1 + "\n";
+				//System.out.println("Result for Day: " + day + " Part 1: " + result1);
 			}
 
 			if (!result2.contains("wip")) {
-				System.out.println("Result for Day: " + day + " Part 2: " + result1);
+				out += "Result for Day: " + paddedDay + " Part 2: " + result2 + "\n";
+				//System.out.println("Result for Day: " + day + " Part 2: " + result2);
 			}
 		}
+		System.out.println(out);
 	}
 }

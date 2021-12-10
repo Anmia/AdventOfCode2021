@@ -2,6 +2,8 @@ package aoc.day10;
 
 import aoc.Day;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Day10 implements Day {
@@ -78,9 +80,8 @@ public class Day10 implements Day {
 	public String part2(List<String> input) {
 		String output = "wip";
 
-		int score = 0;
 		int[] errorOccurrence = {0, 0, 0, 0}; //), ], }, >
-
+		ArrayList<String> scoresLines = new ArrayList<>();
 
 		for (String item : input) {
 			String expectations = "";
@@ -110,16 +111,15 @@ public class Day10 implements Day {
 						} else {
 							corrupt = true;
 							break;
-
 						}
 					}
 				}
 			}
 
 			if (!corrupt) {
-				int tempScore = 0;
-				for (int i = 0; i < complete.length(); i++) {
-					switch (complete.charAt(i)) {
+				long tempScore = 0;
+				for (int i = expectations.length() - 1; i >= 0; i--) {
+					switch (expectations.charAt(i)) {
 						case ')':
 							tempScore = (tempScore * 5) + 1;
 							break;
@@ -134,13 +134,37 @@ public class Day10 implements Day {
 							break;
 					}
 				}
+				scoresLines.add(tempScore + "");
 			}
-
-
 		}
 
-		output = score + "";
+		long[] scores = new long[scoresLines.size()];
+
+		for (int i = 0; i < scores.length; i++) {
+			scores[i] = Long.parseLong(scoresLines.get(i));
+		}
+
+		scores = bubblesort(scores);
+
+		output = scores[(scores.length - 1) / 2] + "";
+
 
 		return output;
+	}
+
+	public static long[] bubblesort(long[] numbers) {
+		boolean swapped = true;
+		for(int i = numbers.length - 1; i > 0 && swapped; i--) {
+			swapped = false;
+			for (int j = 0; j < i; j++) {
+				if (numbers[j] > numbers[j+1]) {
+					long temp = numbers[j];
+					numbers[j] = numbers[j+1];
+					numbers[j+1] = temp;
+					swapped = true;
+				}
+			}
+		}
+		return numbers;
 	}
 }
