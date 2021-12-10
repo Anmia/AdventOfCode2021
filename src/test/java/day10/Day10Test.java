@@ -16,7 +16,16 @@ public class Day10Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        block.add("[({(<(())[]>[[{[]{<()<>>");
+        block.add("[(()[<>])]({[<{<<[]>>(");
+        block.add("{([(<{}[<>[]}>{[]{[(<()>");
+        block.add("(((({<>}<{<{<>}{[]{[]{}");
+        block.add("[[<[([]))<([[{}[[()]]]");
+        block.add("[{[{({}]{}}([{[{{{}}([]");
+        block.add("{<[[]]>}<{[{[{[]{()[[[]");
+        block.add("[<(<(<(<{}))><([]([]()");
+        block.add("<{([([[(<>()){}]>(<<{{");
+        block.add("<{([{{}}[<[[[<>{}]]]>[]]");
 
 
         List<String> input = block;
@@ -25,7 +34,7 @@ public class Day10Test {
         String result = new Day10().part1(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("26397", result);
     }
 
     @Test
@@ -33,7 +42,16 @@ public class Day10Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        block.add("[({(<(())[]>[[{[]{<()<>>");
+        block.add("[(()[<>])]({[<{<<[]>>(");
+        block.add("{([(<{}[<>[]}>{[]{[(<()>");
+        block.add("(((({<>}<{<{<>}{[]{[]{}");
+        block.add("[[<[([]))<([[{}[[()]]]");
+        block.add("[{[{({}]{}}([{[{{{}}([]");
+        block.add("{<[[]]>}<{[{[{[]{()[[[]");
+        block.add("[<(<(<(<{}))><([]([]()");
+        block.add("<{([([[(<>()){}]>(<<{{");
+        block.add("<{([{{}}[<[[[<>{}]]]>[]]");
 
         List<String> input = block;
 

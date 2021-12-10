@@ -7,71 +7,71 @@ import java.util.List;
 
 public class Day07 implements Day {
 
-    @Override
-    public String part1(List<String> input) {
-        String output = "";
-        int[] positions = intConverter(input);
+	@Override
+	public String part1(List<String> input) {
+		String output = "";
+		int[] positions = intConverter(input);
 
-        int shortPath = 999999999;
+		int shortPath = 999999999;
 
-        for (int i = 0; i < positions.length; i++) {
-            int path = 0;
+		for (int i = 0; i < positions.length; i++) {
+			int path = 0;
 
-            for (int j = 0; j < positions.length; j++) {
-                int distance = Math.abs(positions[i] - positions[j]);
-                path = path + (distance);
-            }
-            
-            if (path < shortPath) {
-                shortPath = path;
-            }
-        }
+			for (int j = 0; j < positions.length; j++) {
+				int distance = Math.abs(positions[i] - positions[j]);
+				path = path + (distance);
+			}
 
-        output = shortPath + "";
+			if (path < shortPath) {
+				shortPath = path;
+			}
+		}
 
-        return output;
-    }
+		output = shortPath + "";
 
-    public static int[] intConverter(List<String> input) {
-        String[] temp = input.get(0).split(",");
-        int[] output = new int[temp.length];
-        for (int i = 0; i < output.length; i++) {
-            output[i] = Integer.parseInt(temp[i]);
-        }
+		return output;
+	}
 
-        return output;
-    }
+	public static int[] intConverter(List<String> input) {
+		String[] temp = input.get(0).split(",");
+		int[] output = new int[temp.length];
+		for (int i = 0; i < output.length; i++) {
+			output[i] = Integer.parseInt(temp[i]);
+		}
 
-    @Override
-    public String part2(List<String> input) {
-        String output = "";
-        int[] positions = intConverter(input);
+		return output;
+	}
 
-        int shortPath = 999999999;
+	@Override
+	public String part2(List<String> input) {
+		String output = "";
+		int[] positions = intConverter(input);
 
-        int greater = 0;
+		int shortPath = 999999999;
 
-        for (int i = 0; i < positions.length; i++) {
-            if (greater < positions[i]) {
-                greater = positions[i];
-            }
-        }
+		int greater = 0;
+
+		for (int i = 0; i < positions.length; i++) {
+			if (greater < positions[i]) {
+				greater = positions[i];
+			}
+		}
 
 
-        for (int i = 0; i < greater; i++) {
-            int path = 0;
-            for (int j = 0; j < positions.length; j++) {
-                int difference = Math.abs(i - positions[j]);
-                int distance = (difference * (1 + difference)) / 2;
-                path = path + distance;
-            }
+		for (int i = 0; i < greater; i++) {
+			int path = 0;
+			for (int j = 0; j < positions.length; j++) {
+				int difference = Math.abs(i - positions[j]);
+				int distance = (difference * (1 + difference)) / 2;
+				path = path + distance;
+			}
 
-            if (path < shortPath) {
-                shortPath = path;
-            }
-        }
+			if (path < shortPath) {
+				shortPath = path;
+			}
+		}
 
-        output = shortPath + "";
-        return output;
-    }
+		output = shortPath + "";
+		return output;
+	}
 }
