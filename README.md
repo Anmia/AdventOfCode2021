@@ -35,3 +35,8 @@
 ![Day](https://badgen.net/badge/23/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/24/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/25/%E2%98%86%E2%98%86/gray)
+
+## Unfinished days
+
+### Day 9
+Until I learn search algorithms, this will remain unsolved.
