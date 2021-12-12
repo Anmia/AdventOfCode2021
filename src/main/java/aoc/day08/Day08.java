@@ -116,7 +116,7 @@ public class Day08 implements Day {
 		wires.put("g", "");
 
 		long count = 0;
-		ArrayList<String> ffs = new ArrayList<>();
+
 
 		for (int i = 0; i < input.size(); i++) { // Checks each line
 			String[] firstSplit = input.get(i).split(" \\| ");
@@ -298,21 +298,7 @@ public class Day08 implements Day {
 					number += "9";
 				}
 			}
-
-			ffs.add(number);
 			count += Long.parseLong(number);
-		}
-
-
-		long check = 0;
-
-		for (String item : ffs) {
-			long tempLong = Long.parseLong(item);
-			check = check + tempLong;
-		}
-
-		if (count == check) {
-			output = count + "";
 		}
 
 		return output;
