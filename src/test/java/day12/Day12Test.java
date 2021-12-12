@@ -16,8 +16,13 @@ public class Day12Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
-
+        block.add("start-A");
+        block.add("start-b");
+        block.add("A-c");
+        block.add("A-b");
+        block.add("b-d");
+        block.add("A-end");
+        block.add("b-end");
 
         List<String> input = block;
 
@@ -33,7 +38,13 @@ public class Day12Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        block.add("start-A");
+        block.add("start-b");
+        block.add("A-c");
+        block.add("A-b");
+        block.add("b-d");
+        block.add("A-end");
+        block.add("b-end");
 
         List<String> input = block;
 
