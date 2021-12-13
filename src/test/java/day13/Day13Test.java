@@ -16,8 +16,33 @@ public class Day13Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        String test = "6,10\n" +
+                "0,14\n" +
+                "9,10\n" +
+                "0,3\n" +
+                "10,4\n" +
+                "4,11\n" +
+                "6,0\n" +
+                "6,12\n" +
+                "4,1\n" +
+                "0,13\n" +
+                "10,12\n" +
+                "3,4\n" +
+                "3,0\n" +
+                "8,4\n" +
+                "1,10\n" +
+                "2,14\n" +
+                "8,10\n" +
+                "9,0\n" +
+                "\n" +
+                "fold along y=7\n" +
+                "fold along x=5";
 
+        String[] toBlock = test.split("\n");
+
+        for (String item : toBlock) {
+            block.add(item);
+        }
 
         List<String> input = block;
 
@@ -25,7 +50,7 @@ public class Day13Test {
         String result = new Day13().part1(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("17", result);
     }
 
     @Test
@@ -33,7 +58,33 @@ public class Day13Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        String test = "6,10\n" +
+                "0,14\n" +
+                "9,10\n" +
+                "0,3\n" +
+                "10,4\n" +
+                "4,11\n" +
+                "6,0\n" +
+                "6,12\n" +
+                "4,1\n" +
+                "0,13\n" +
+                "10,12\n" +
+                "3,4\n" +
+                "3,0\n" +
+                "8,4\n" +
+                "1,10\n" +
+                "2,14\n" +
+                "8,10\n" +
+                "9,0\n" +
+                "\n" +
+                "fold along y=7\n" +
+                "fold along x=5";
+
+        String[] toBlock = test.split("\n");
+
+        for (String item : toBlock) {
+            block.add(item);
+        }
 
         List<String> input = block;
 
@@ -41,6 +92,12 @@ public class Day13Test {
         String result = new Day13().part2(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("\n#####\n" +
+                "#...#\n" +
+                "#...#\n" +
+                "#...#\n" +
+                "#####\n" +
+                ".....\n" +
+                ".....\n", result);
     }
 }

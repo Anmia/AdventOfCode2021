@@ -301,6 +301,8 @@ public class Day08 implements Day {
 			count += Long.parseLong(number);
 		}
 
+		output = count + "";
+
 		return output;
 	}
 
