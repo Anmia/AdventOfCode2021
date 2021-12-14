@@ -16,7 +16,30 @@ public class Day14Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        String test = "NNCB\n" +
+                "\n" +
+                "CH -> B\n" +
+                "HH -> N\n" +
+                "CB -> H\n" +
+                "NH -> C\n" +
+                "HB -> C\n" +
+                "HC -> B\n" +
+                "HN -> C\n" +
+                "NN -> C\n" +
+                "BH -> H\n" +
+                "NC -> B\n" +
+                "NB -> B\n" +
+                "BN -> B\n" +
+                "BB -> N\n" +
+                "BC -> B\n" +
+                "CC -> N\n" +
+                "CN -> C";
+
+        String[] toBlock = test.split("\n");
+
+        for (String item : toBlock) {
+            block.add(item);
+        }
 
 
         List<String> input = block;
@@ -25,7 +48,7 @@ public class Day14Test {
         String result = new Day14().part1(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("1588", result);
     }
 
     @Test
@@ -33,7 +56,31 @@ public class Day14Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        String test = "NNCB\n" +
+                "\n" +
+                "CH -> B\n" +
+                "HH -> N\n" +
+                "CB -> H\n" +
+                "NH -> C\n" +
+                "HB -> C\n" +
+                "HC -> B\n" +
+                "HN -> C\n" +
+                "NN -> C\n" +
+                "BH -> H\n" +
+                "NC -> B\n" +
+                "NB -> B\n" +
+                "BN -> B\n" +
+                "BB -> N\n" +
+                "BC -> B\n" +
+                "CC -> N\n" +
+                "CN -> C";
+
+        String[] toBlock = test.split("\n");
+
+        for (String item : toBlock) {
+            block.add(item);
+        }
+
 
         List<String> input = block;
 
@@ -41,6 +88,6 @@ public class Day14Test {
         String result = new Day14().part2(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("2188189693529", result);
     }
 }
