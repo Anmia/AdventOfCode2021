@@ -81,11 +81,11 @@ public class Day14 implements Day {
 	public String part2(List<String> input) {
 		String output = "wip";
 
-		String line = getString(input);
-		List<String[]> commands = commandTransform(input);
-
-
-
+//		String line = getString(input);
+//		List<String[]> commands = commandTransform(input);
+//
+//		long startTime = System.nanoTime();
+//
 //		for (int i = 0; i < 40; i++) {
 //			String[] swap = new String[line.length() - 1];
 //			Arrays.fill(swap, "");
@@ -97,12 +97,16 @@ public class Day14 implements Day {
 //				}
 //			}
 //
+//			System.out.println("After creating swap " + i + " " + (System.nanoTime() - startTime));
+//
 //			String tempLine = line.substring(0, 1);
 //			for (int j = 1; j < line.length(); j++) {
 //				tempLine += swap[j - 1] + line.substring(j, j +1);
 //			}
 //
 //			line = tempLine;
+//			System.out.println(line.length());
+//			System.out.println("at end of " + i + " " + (System.nanoTime() - startTime));
 //		}
 //
 //		String doom = "";
@@ -130,6 +134,6 @@ public class Day14 implements Day {
 //
 //		output = (high - low) + "";
 
-		return output;
+		return "Not solved as of yet as it might take a few years to run :(";
 	}
 }
