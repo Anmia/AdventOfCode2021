@@ -71,6 +71,6 @@ public class Day15Test {
         String result = new Day15().part2(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("315", result);
     }
 }
