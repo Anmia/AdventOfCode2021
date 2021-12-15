@@ -16,7 +16,22 @@ public class Day15Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        String test = "1163751742\n" +
+                "1381373672\n" +
+                "2136511328\n" +
+                "3694931569\n" +
+                "7463417111\n" +
+                "1319128137\n" +
+                "1359912421\n" +
+                "3125421639\n" +
+                "1293138521\n" +
+                "2311944581";
+
+        String[] toBlock = test.split("\n");
+
+        for (String item : toBlock) {
+            block.add(item);
+        }
 
 
         List<String> input = block;
@@ -25,7 +40,7 @@ public class Day15Test {
         String result = new Day15().part1(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("40", result);
     }
 
     @Test
@@ -33,7 +48,22 @@ public class Day15Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        String test = "1163751742\n" +
+                "1381373672\n" +
+                "2136511328\n" +
+                "3694931569\n" +
+                "7463417111\n" +
+                "1319128137\n" +
+                "1359912421\n" +
+                "3125421639\n" +
+                "1293138521\n" +
+                "2311944581";
+
+        String[] toBlock = test.split("\n");
+
+        for (String item : toBlock) {
+            block.add(item);
+        }
 
         List<String> input = block;
 
