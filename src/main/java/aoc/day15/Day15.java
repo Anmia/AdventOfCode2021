@@ -74,7 +74,7 @@ public class Day15 implements Day {
 			if (x == grid[y].length - 1 && y == grid.length - 1) {
 				if (path < shorthPathLength) {
 					shorthPathLength = path;
-					//System.out.println(x + " " + y + " " + path + " " + itterator);
+					System.out.println(x + " " + y + " " + path + " " + itterator);
 				}
 			}
 
@@ -109,11 +109,11 @@ public class Day15 implements Day {
 			Arrays.fill(item, Integer.MAX_VALUE);
 		}
 
+		shorthPathLength = Integer.MAX_VALUE;
+		//smallPath(0, 0, 0, map);
 
-		smallPath(0, 0, 0, map);
 
-
-		output = (shorthPathLength - map[0][0]) + "";
+	//	output = (shorthPathLength - map[0][0]) + "";
 
 
 		return output;

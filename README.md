@@ -22,9 +22,9 @@
 [![Day](https://badgen.net/badge/10/%E2%98%85%E2%98%85/green)](src/main/java/aoc/day10)
 [![Day](https://badgen.net/badge/11/%E2%98%85%E2%98%85/green)](src/main/java/aoc/day11)
 [![Day](https://badgen.net/badge/12/%E2%98%85%E2%98%85/green)](https://github.com/juliuxu/aoc2021/tree/master/src/day12)
-![Day](https://badgen.net/badge/13/%E2%98%86%E2%98%86/gray)
-![Day](https://badgen.net/badge/14/%E2%98%86%E2%98%86/gray)
-![Day](https://badgen.net/badge/15/%E2%98%86%E2%98%86/gray)
+[![Day](https://badgen.net/badge/13/%E2%98%85%E2%98%85/green)](src/main/java/aoc/day13)
+[![Day](https://badgen.net/badge/14/%E2%98%85%E2%98%86/blue)](src/main/java/aoc/day14)
+[![Day](https://badgen.net/badge/15/%E2%98%85%E2%98%86/blue)](src/main/java/aoc/day15)
 ![Day](https://badgen.net/badge/16/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/17/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/18/%E2%98%86%E2%98%86/gray)
@@ -40,3 +40,6 @@
 
 ### Day 9
 Until I learn search algorithms, this will remain unsolved.
+
+### Day 14
+No idea :(

@@ -16,7 +16,7 @@ public class Day16Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        block.add("D2FE28");
 
 
         List<String> input = block;
