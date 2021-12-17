@@ -16,7 +16,7 @@ public class Day17Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        block.add("target area: x=20..30, y=-10..-5");
 
 
         List<String> input = block;
@@ -25,7 +25,7 @@ public class Day17Test {
         String result = new Day17().part1(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("45", result);
     }
 
     @Test
