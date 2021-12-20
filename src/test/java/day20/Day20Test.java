@@ -37,7 +37,7 @@ public class Day20Test {
         String result = new Day20().part1(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("35", result);
     }
 
     @Test
@@ -65,6 +65,6 @@ public class Day20Test {
         String result = new Day20().part2(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("3351", result);
     }
 }

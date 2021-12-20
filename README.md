@@ -26,10 +26,10 @@
 [![Day](https://badgen.net/badge/14/%E2%98%85%E2%98%86/blue)](src/main/java/aoc/day14)
 [![Day](https://badgen.net/badge/15/%E2%98%85%E2%98%86/blue)](src/main/java/aoc/day15)
 ![Day](https://badgen.net/badge/16/%E2%98%86%E2%98%86/gray)
-![Day](https://badgen.net/badge/17/%E2%98%86%E2%98%86/gray)
+[![Day](https://badgen.net/badge/17/%E2%98%85%E2%98%86/blue)](src/main/java/aoc/day17)
 ![Day](https://badgen.net/badge/18/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/19/%E2%98%86%E2%98%86/gray)
-![Day](https://badgen.net/badge/20/%E2%98%86%E2%98%86/gray)
+[![Day](https://badgen.net/badge/20/%E2%98%85%E2%98%85/green)](src/main/java/aoc/day15)
 ![Day](https://badgen.net/badge/21/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/22/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/23/%E2%98%86%E2%98%86/gray)
@@ -43,3 +43,12 @@ Until I learn search algorithms, this will remain unsolved.
 
 ### Day 14
 No idea :(
+
+### Day 15
+...
+
+### Day 16
+Read commit message for that day :(
+
+## Day 18 & 19
+Maybe one day, possibly 18
