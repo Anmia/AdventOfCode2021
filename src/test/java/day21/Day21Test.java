@@ -16,7 +16,14 @@ public class Day21Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        String test = "Player 1 starting position: 4\n" +
+                "Player 2 starting position: 8";
+
+        String[] toBlock = test.split("\n");
+
+        for (String item : toBlock) {
+            block.add(item);
+        }
 
 
         List<String> input = block;
@@ -25,7 +32,7 @@ public class Day21Test {
         String result = new Day21().part1(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("739785", result);
     }
 
     @Test
