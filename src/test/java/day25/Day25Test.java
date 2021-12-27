@@ -16,7 +16,21 @@ public class Day25Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        String test = "v...>>.vv>\n" +
+                ".vv>>.vv..\n" +
+                ">>.>v>...v\n" +
+                ">>v>>.>.v.\n" +
+                "v>v.vv.v..\n" +
+                ">.>>..v...\n" +
+                ".vv..>.>v.\n" +
+                "v.v..>>v.v\n" +
+                "....v..v.>";
+
+        String[] toBlock = test.split("\n");
+
+        for (String item : toBlock) {
+            block.add(item);
+        }
 
 
         List<String> input = block;
@@ -25,7 +39,7 @@ public class Day25Test {
         String result = new Day25().part1(input);
 
         // Then
-        assertEquals("wip", result);
+        assertEquals("58", result);
     }
 
     @Test
@@ -33,7 +47,21 @@ public class Day25Test {
         // Given
         ArrayList<String> block = new ArrayList<>();
 
-        block.add("3,4,3,1,2");
+        String test = "v...>>.vv>\n" +
+                ".vv>>.vv..\n" +
+                ">>.>v>...v\n" +
+                ">>v>>.>.v.\n" +
+                "v>v.vv.v..\n" +
+                ">.>>..v...\n" +
+                ".vv..>.>v.\n" +
+                "v.v..>>v.v\n" +
+                "....v..v.>";
+
+        String[] toBlock = test.split("\n");
+
+        for (String item : toBlock) {
+            block.add(item);
+        }
 
         List<String> input = block;
 
